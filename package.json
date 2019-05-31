@@ -1,0 +1,44 @@
+{
+  "name": "pub-sub",
+  "version": "1.0.0",
+  "description": "JS custom event handler and processor which can be used for UI module orchestration but the main use case is for propagating signals to be tracked in persistant data stores.",
+  "main": "pub-sub.js",
+  "scripts": {
+    "test": "jest",
+    "build": "./node_modules/.bin/babel ./src -d ./build"
+  },
+  "author": "Richard Loa",
+  "license": "Apache License v2.0",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0"
+  },
+  "jest": {
+    "coverageThreshold": {
+      "src/js/*.js": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    },
+    "clearMocks": true,
+    "collectCoverage": true,
+    "coverageDirectory": "<rootDir>/coverage",
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/build",
+      "<rootDir>/node_modules"
+    ],
+    "coverageReporters": [
+      "text",
+      "html"
+    ],
+    "testPathIgnorePatterns":[
+      "<rootDir>/build"
+    ],
+    "verbose": false
+  }
+}
