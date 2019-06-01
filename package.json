@@ -18,7 +18,7 @@
   },
   "jest": {
     "coverageThreshold": {
-      "src/js/*.js": {
+      "src/*.js": {
         "branches": 80,
         "functions": 80,
         "lines": 80,

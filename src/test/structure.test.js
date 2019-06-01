@@ -2,7 +2,7 @@ import defaultExport from "../pubsub.js";
 describe("test suite for managing signals passing through pub sub", ()=>{
 
 	beforeAll(()=>{
-		window.callback1 = ()=>{ console.log("I am calback1.")};
+		global.callback1 = ()=>{ console.log("I am callback 1")};
 	});
 	it("the subscriptions list is empty", () => {
 		expect(window.PubSub.whitelist).toEqual(["LOADED","READ"]);
@@ -11,8 +11,8 @@ describe("test suite for managing signals passing through pub sub", ()=>{
 	it("the subscriptions list is a hash and not an array", () => {
 		expect(window.PubSub.subscriptions).toEqual({"LOADED":[], "READ":[]});
 
-		expect(window.PubSub.subscribe("LOADED", window.callback1 )).toEqual(1);
-		expect(window.PubSub.subscriptions).toEqual({"LOADED":{"1":{cb:window.callback1}}});
+		expect(window.PubSub.subscribe("LOADED", callback1 )).toEqual(0);
+		expect(window.PubSub.subscriptions).toEqual({"LOADED":[{cb:callback1}],"READ":[]});
 	});
 
 	it("should have history of all signals fired", () => {
